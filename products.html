@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="prod.css" />
+    <link rel="stylesheet" href="null.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>PRODUCTS</title>
+  </head>
+  <body>
+    <header class="text">
+      <div class="text-container">
+        <a href="index.html" class="logo">VIEW</ф>
+        <div class="nav">
+          <a href="products.html" class="nav-item">Products</a>
+          <a href="#" class="nav-item">History</a>
+          <a href="#" class="nav-item">Gallery</a>
+        </div>
+      </div>
+      <div class="line"></div>
+    </header>
+    <div class="info">
+      <div class="left-text f12">
+        All pieces are handmade in our workshop and produced on a made to order
+        basis. Please keep in mind that once your order is placed production
+        times can be from 8 - 10 weeks.
+      </div>
+      <div class="right-content f12">8 - 10 weeks</div>
+    </div>
+    <div class="catalogue">
+      <div href="#" class="div1 catalogue-item">
+        <div class="item-info">
+          <div class="name fname"></div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+      <div class="div2 catalogue-item">
+        <div class="item-info">
+          <div class="name fname">Glasses</div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+      <div class="div3 catalogue-item">
+        <div class="item-info">
+          <div class="name fname">Glasses</div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+      <div class="div4 catalogue-item">
+        <div class="item-info">
+          <div class="name fname">Glasses</div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+      <div class="div5 catalogue-item">
+        <div class="item-info">
+          <div class="name fname">Glasses</div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+      <div class="div6 catalogue-item">
+        <div class="item-info">
+          <div class="name fname">Glasses</div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+      <div class="div7 catalogue-item">
+        <div class="item-info">
+          <div class="name fname">Glasses</div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+      <div class="div8 catalogue-item">
+        <div class="item-info">
+          <div class="name fname">Glasses</div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+      <div class="div9 catalogue-item">
+        <div class="item-info">
+          <div class="name fname">Glasses</div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+      <div class="div10 catalogue-item">
+        <div class="item-info">
+          <div class="name fname">Glasses</div>
+          <div class="price fname">$1800</div>
+        </div>
+      </div>
+    </div>
+	 <script>
+		fetch('http://83.8.236.236:8080/item')
+			.then(res => {
+				return res.json();
+			})
+			.then(data => {
+				console.log(data);
+				
+        		const names = document.querySelectorAll('.name');
+        		const prices = document.querySelectorAll('.price'); 
+        		names.forEach((element, index) => {
+            		const title = data[index].title;
+            		const formattedPrice = data[index].formattedPrice; // получаем значение для цены
+            		element.textContent = title;
+            		prices[index].textContent = formattedPrice; // вставляем значение в текстовое содержимое элемента с классом .price
+
+
+				const items = document.querySelectorAll('.catalogue-item'); // выбираем все элементы с классом .catalogue-item
+        		items.forEach((item, index) => {
+            		const backgroundImage = `url(${data[index].imageUrl})`; // получаем URL изображения из данных
+            		const hoverImage = `url(${data[index].hoverImg})`;
+
+
+            		item.style.backgroundImage = backgroundImage; // устанавливаем изображение как фон для элемента
+
+						item.addEventListener('mouseenter', () => {
+                		item.style.backgroundImage = hoverImage; // меняем изображение на hoverImage при наведении мыши
+            		});
+
+            		item.addEventListener('mouseleave', () => {
+                		item.style.backgroundImage = backgroundImage; // возвращаем обычное изображение при уходе мыши
+            });
+        });
+      });
+    })
+
+    		.catch(error => console.error('Error', error));
+	 </script>
+  </body>
+</html>

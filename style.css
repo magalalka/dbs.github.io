@@ -1,0 +1,97 @@
+
+.darken {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: #161616;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.5s, opacity 0.5s ease-in-out;
+}
+.darken.active {
+  visibility: visible;
+  opacity: 0.4;
+  transition: visible 0.5, opacity 0.5s ease-in;
+}
+
+.container {
+  width: 100vw; /* Занимает всю ширину экрана */
+  height: 100vh;
+  position: fixed;
+  overflow-x: scroll; /* Разрешает горизонтальный скролл */
+  overflow-y: hidden; /* Скрывает вертикальный скролл */
+  white-space: nowrap; /* Предотвращает перенос строк */
+}
+
+.content {
+  display: inline-block; /* Для горизонтального выравнивания изображений */
+  z-index: 0;
+}
+
+.img-main {
+  max-width: 100%; /* Ограничение ширины изображения для адаптивности */
+  width: 60vw;
+  height: 100vh;
+  display: inline-block;
+  margin-right: -0.5rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.i1 {
+  background-image: url(assets/img/01.png);
+}
+.i2 {
+  background-image: url(assets/img/02.png);
+}
+.i3 {
+  background-image: url(assets/img/03.png);
+}
+.i4 {
+  background-image: url(assets/img/04.png);
+}
+.i5 {
+  background-image: url(assets/img/05.png);
+}
+.i6 {
+  background-image: url(assets/img/06.png);
+}
+.i7 {
+  background-image: url(assets/img/07.png);
+}
+
+.text {
+  z-index: 2;
+  position: fixed;
+  bottom: 5rem;
+  color: white;
+  width: 100%;
+  padding: 0 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.text-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.logo {
+  font-size: 72px;
+  line-height: 70%;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  gap: 2.1rem;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: white;
+}
